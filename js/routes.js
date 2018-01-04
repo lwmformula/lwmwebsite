@@ -42,14 +42,14 @@ app.get('/git/*', function(req,res) {
   path = path[path.length-1];
   ext = path.split('.');
   ext = ext[ext.length-1];
-
-  if (ext == 'py') {
-    model.ins(req,path);
-    res.redirect("https://github.com/lwmformula/" + parent + '/blob/master/' + path);
-  }
-  else if (ext == 'git'){
+  
+if (ext == 'git'){
     model.ins(req,path);
     res.redirect("https://github.com/lwmformula/" + path);
+  }
+else {
+    model.ins(req,path);
+    res.redirect("https://github.com/lwmformula/" + parent + '/blob/master/' + path);
   }
 });
 
